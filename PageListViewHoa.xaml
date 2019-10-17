@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="BT2.PageListViewHoa">
+    <ContentPage.Content>
+        <StackLayout Orientation="Vertical">
+            <ListView ItemsSource="{Binding ds}" HasUnevenRows="True" IsGroupingEnabled="True" GroupDisplayBinding="{Binding TenLoai}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="3*"/>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="20"/>
+                                    <RowDefinition Height="20"/>
+                                    <RowDefinition Height="20"/>
+                                </Grid.RowDefinitions>
+
+                                <Image Source="{Binding Hinh}" Grid.Column="0" Grid.RowSpan="3" Aspect="AspectFit" VerticalOptions="Center"/>
+                                <Label Text="{Binding TenHoa}" Grid.Column="1" Grid.Row="0" TextColor="Navy" VerticalOptions="Center"/>
+                                <Label Text="{Binding MoTa}" Grid.Column="1" Grid.Row="1" TextColor="MediumVioletRed" VerticalOptions="Center"/>
+                                <Label Text="{Binding Gia}" Grid.Column="1" Grid.Row="2" TextColor="#9dd9e1" VerticalOptions="Center"/>
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
